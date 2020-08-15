@@ -6,7 +6,7 @@ mysql mha docker compose
 1. download
 ```cmd
 $ cd /tmp
-$ git clone https://github.com/breeze2/mysql-mha-docker.git
+$ git clone https://github.com/ZepengChan/mysql-mha-docker.git
 $ cd mysql-mha-docker
 
 ```
@@ -24,9 +24,15 @@ $ sh ./scripts/ssh_start.sh
 ```
 
 4. copy ssh public key to each container
-```cmd
-$ sh ./scripts/ssh_share.sh 
 
+   这里需要进入mha_manager 创建一个文件夹
+
+   
+```cmd
+$ sudo docker exec -it mha_manager  bash 
+$ mkdir /root/mha_share/sshkeys
+$ exit
+$ sh ./scripts/ssh_share.sh 
 ```
 
 5. check mha ssh
